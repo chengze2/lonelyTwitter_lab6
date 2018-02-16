@@ -11,16 +11,25 @@ public class TweetList {
     private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
 
     public void add(Tweet tweet){
-        tweets.add(tweet);
+        if (tweets.contains(tweet)){
+            throw new IllegalArgumentException("duplicate tweet!");
+        }
+        else{
+            tweets.add(tweet);
+        }
+    }
+
+    public ArrayList<Tweet> getTweet(){
+        return tweets;
+        // arraylist has function get(int) to get the specific object
     }
 
     public boolean hasTweet(Tweet tweet) {
         return tweets.contains(tweet);
     }
 
-    public Tweet getTweet(int index){
-        return tweets.get(index);
-        // arraylist has function get(int) to get the specific object
+    public int getCount(){
+        return tweets.size();
     }
 
     public void delete(Tweet tweet){
